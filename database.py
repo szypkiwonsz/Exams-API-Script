@@ -35,3 +35,14 @@ class Database:
 
         self.close()
 
+    def is_not_empty(self):
+
+        self.cursor.execute("SELECT * FROM EXAM_DATA")
+        data = self.cursor.fetchall()
+        self.close()
+
+        if data:
+            return True
+        else:
+            return False
+
