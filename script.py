@@ -18,7 +18,10 @@ class Script:
     else:
         if sys.argv[1] == "--get_data":
             api = Api("https://api.dane.gov.pl/resources/17363/data", "exams_data.sqlite")
-            api.get_data()
+            if api.is_not_empty():
+                print("Database is already filled with data!")
+            else:
+                api.get_data()
 
 
 if __name__ == '__main__':
