@@ -29,30 +29,50 @@ class Script:
                 print("Database is already filled with data!")
 
     def first(self):
-        if self.first_arg == "--1":
+        if self.first_arg == "--1" and self.second_arg and self.third_arg:
             calculation = Calculation("exams_data.sqlite", self.second_arg, self.third_arg, self.fourth_arg)
             calculation.if_gender()
             calculation.joined()
             calculation.sum()
+            calculation.count_years()
             calculation.average()
             calculation.print_result()
+        else:
+            pass
 
     def second(self):
-        if self.first_arg == "--2":
+        if self.first_arg == "--2" and self.second_arg and self.third_arg:
             calculation = Calculation("exams_data.sqlite", self.second_arg, self.third_arg, self.fourth_arg)
             calculation.if_gender()
             calculation.joined()
             calculation.passed()
             calculation.sum()
             calculation.percent()
+            calculation.add_percent()
             calculation.print_result()
+        else:
+            pass
 
     def third(self):
         if self.first_arg == "--3":
-            calculation = Calculation("exams_data.sqlite", self.second_arg, self.third_arg, self.fourth_arg)
+            calculation = Calculation("exams_data.sqlite", None, self.second_arg, self.third_arg)
             calculation.if_gender()
             calculation.highest_pass()
+            calculation.data = calculation.get_cleaned_value_from_list(calculation.data)
             calculation.print_result()
+        else:
+            pass
+
+    def fourth(self):
+        if self.first_arg == "--4":
+            calculation = Calculation("exams_data.sqlite")
+            calculation.gender = self.second_arg
+            calculation.if_gender()
+            calculation.get_value_for_regression()
+            calculation.count_years_from_database()
+            calculation.regression()
+        else:
+            pass
 
 
 if __name__ == '__main__':
@@ -84,3 +104,4 @@ if __name__ == '__main__':
     script.first()
     script.second()
     script.third()
+    script.fourth()
