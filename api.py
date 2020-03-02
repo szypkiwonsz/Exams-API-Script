@@ -18,7 +18,7 @@ class Api(Database):
 
         return int(link[-2:]) + 1
 
-    def get_data(self):
+    def get_insert_data(self):
 
         for pages in range(1, self.number_of_pages()):
             data = requests.get(self.api_link + "?page={}".format(pages)).json()
