@@ -80,11 +80,35 @@ class Calculation(Database):
         self.year = str(self.get_cleaned_value_from_list(self.year))
         self.count_years()
 
-    def regression(self):
-        check_people = 100_000_000_000
+    @staticmethod
+    def print_regression(territory, year_first, year_second):
+        print("{}: {} -> {}".format(territory, year_first, year_second))
 
-        for i in range(len(self.data)):
-            people = self.data[i][1]
-            if check_people < people:
-                print("{}: {} -> {}".format(str(self.data[i][0]), self.data[i-1][2], self.data[i][2]))
-            check_people = people
+    def regression(self):
+        check_people = 0
+
+        if self.gender == "":
+            for i in range(0, len(self.data), 2):
+                get_sum = 0
+                get_sum += self.data[i][1] + self.data[i+1][1]
+
+                if check_people > get_sum and self.data[i-1][2] != 2018:
+                    self.print_regression(str(self.data[i][0]), self.data[i-1][2], self.data[i][2])
+                check_people = get_sum
+
+        else:
+            for i in range(len(self.data)):
+
+                people = self.data[i][1]
+
+                if check_people > people and self.data[i-1][2] != 2018 and self.data[i-1][2] != self.data[i][2]:
+                    self.print_regression(str(self.data[i][0]), self.data[i-1][2], self.data[i][2])
+                check_people = people
+
+    # def get_value_for_compare(self):
+    #
+    #     self.query("SELECT TERRITORY, PEOPLE, YEAR FROM EXAM_DATA WHERE TERRITORY =  JOINED_AND_PASSED = 'zdało' {}".format(self.gender))
+    #     self.data = self.cursor.fetchall()
+    #
+    # def compare(self):
+
