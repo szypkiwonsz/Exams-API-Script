@@ -7,9 +7,11 @@ class Calculation(Database):
 
         super().__init__(name)
         self.territory = territory
+        self.territory_second = None
         self.year = year
         self.gender = gender
         self.data = None
+        self.data_second = None
         self.joined_people = 0
         self.passed_people = 0
         self.counted_years = 0
@@ -105,10 +107,39 @@ class Calculation(Database):
                     self.print_regression(str(self.data[i][0]), self.data[i-1][2], self.data[i][2])
                 check_people = people
 
-    # def get_value_for_compare(self):
-    #
-    #     self.query("SELECT TERRITORY, PEOPLE, YEAR FROM EXAM_DATA WHERE TERRITORY =  JOINED_AND_PASSED = 'zdało' {}".format(self.gender))
-    #     self.data = self.cursor.fetchall()
-    #
-    # def compare(self):
+    def get_value_for_compare(self):
 
+        self.query("SELECT TERRITORY, PEOPLE, YEAR FROM EXAM_DATA WHERE TERRITORY = '{}' AND JOINED_AND_PASSED = "
+                   "'zdało' {}".format(self.territory, self.gender))
+        self.data = self.cursor.fetchall()
+        self.query("SELECT TERRITORY, PEOPLE, YEAR FROM EXAM_DATA WHERE TERRITORY = '{}' AND JOINED_AND_PASSED = "
+                   "'zdało' {}".format(self.territory_second, self.gender))
+
+        self.data_second = self.cursor.fetchall()
+
+    def compare(self):
+
+        if self.gender == "":
+
+            for i in range(0, len(self.data), 2):
+                get_sum = 0
+                get_sum_second = 0
+                get_sum += self.data[i][1] + self.data[i+1][1]
+                get_sum_second += self.data_second[i][1] + self.data_second[i+1][1]
+
+                if get_sum_second > get_sum:
+                    print("{} - {}".format(self.data_second[i][2], self.data_second[i][0]))
+                else:
+                    print("{} - {}".format(self.data[i][2], self.data[i][0]))
+
+        else:
+
+            for i in range(len(self.data)):
+
+                people = self.data[i][1]
+                people_second = self.data_second[i][1]
+
+                if people_second > people:
+                    print("{} - {}".format(self.data_second[i][2], self.data_second[i][0]))
+                else:
+                    print("{} - {}".format(self.data[i][2], self.data[i][0]))
