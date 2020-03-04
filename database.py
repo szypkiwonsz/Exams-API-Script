@@ -42,7 +42,6 @@ class Database:
 
         self.cursor.execute("SELECT * FROM EXAM_DATA")
         data = self.cursor.fetchall()
-        self.close()
 
         if data:
             return False
