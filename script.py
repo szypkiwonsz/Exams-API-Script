@@ -16,6 +16,13 @@ class Script:
         self.third_arg = third_arg
         self.fourth_arg = fourth_arg
 
+    @staticmethod
+    def check_gender(argument):
+        if argument == "kobiety" or argument == "mężczyźni" or argument == "":
+            return True
+        else:
+            return False
+
     def empty_command(self):
         if len(self.command) == 0:
             print("This command not exist! Write: python main.py --help")
@@ -74,6 +81,17 @@ class Script:
         else:
             pass
 
+    def fifth(self):
+        if self.first_arg == "--5" and self.second_arg and self.third_arg and self.check_gender(self.fourth_arg):
+            calculation = Calculation("exams_data.sqlite", self.second_arg)
+            calculation.territory_second = self.third_arg
+            calculation.gender = self.fourth_arg
+            calculation.if_gender()
+            calculation.get_value_for_compare()
+            calculation.compare()
+        else:
+            print("This command not exist! Write: python main.py --help")
+
 
 if __name__ == '__main__':
 
@@ -105,3 +123,4 @@ if __name__ == '__main__':
     script.second()
     script.third()
     script.fourth()
+    script.fifth()
