@@ -1,3 +1,5 @@
+import sys
+
 from database import Database
 
 
@@ -27,7 +29,11 @@ class Calculation(Database):
 
     def count_years(self):
 
-        self.counted_years = int(self.year[-1]) + 1
+        try:
+            self.counted_years = int(self.year[-1]) + 1
+
+        except ValueError as e:
+            sys.exit("Third argument is invalid!")
 
     def average(self):
 
