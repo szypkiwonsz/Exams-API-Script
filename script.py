@@ -23,9 +23,19 @@ class Script:
         else:
             return False
 
+    @staticmethod
+    def check_year(argument):
+        try:
+            if 2009 < int(argument) < 2019:
+                return True
+            else:
+                return False
+        except ValueError as e:
+            sys.exit("Arguments are invalid!")
+
     def empty_command(self):
         if len(self.command) == 0:
-            print("This command not exist! Write: python main.py --help")
+            print("This command not exist! Write: python script.py --help")
 
     def get_data(self):
         if self.first_arg == "--get_data":
@@ -36,7 +46,7 @@ class Script:
                 print("Database is already filled with data!")
 
     def first(self):
-        if self.first_arg == "--1" and self.second_arg and self.third_arg:
+        if self.first_arg == "--1" and self.second_arg and self.third_arg and self.check_gender(self.fourth_arg) and self.check_year(self.third_arg):
             calculation = Calculation("exams_data.sqlite", self.second_arg, self.third_arg, self.fourth_arg)
             calculation.if_gender()
             calculation.joined()
@@ -48,7 +58,7 @@ class Script:
             pass
 
     def second(self):
-        if self.first_arg == "--2" and self.second_arg and self.third_arg:
+        if self.first_arg == "--2" and self.second_arg and self.third_arg and self.check_gender(self.fourth_arg) and self.check_year(self.third_arg):
             calculation = Calculation("exams_data.sqlite", self.second_arg, self.third_arg, self.fourth_arg)
             calculation.if_gender()
             calculation.joined()
@@ -61,7 +71,7 @@ class Script:
             pass
 
     def third(self):
-        if self.first_arg == "--3":
+        if self.first_arg == "--3" and self.second_arg and self.check_gender(self.fourth_arg) and self.check_year(self.second_arg):
             calculation = Calculation("exams_data.sqlite", None, self.second_arg, self.third_arg)
             calculation.if_gender()
             calculation.highest_pass()
@@ -89,8 +99,25 @@ class Script:
             calculation.if_gender()
             calculation.get_value_for_compare()
             calculation.compare()
-        else:
-            print("This command not exist! Write: python main.py --help")
+        elif self.first_arg == "--help":
+            print('Commands:')
+            print('REMEMBER: FIRST YOU SHOULD FILL THE DATABASE WITH DATA. -> "--get_data"')
+            print('Choosing to divide results by gender is not required but it is possible by adding the last command '
+                  'as "kobiety" or "mężczyźni".')
+            print(' --help -> show this basic help menu.')
+            print(' --get_data -> Importing data from api to database.')
+            print(' --1 TERRITORY YEAR -> displaying the average number of people who took the exam for a given '
+                  'province over the years, up to the given year.')
+            print(' --2 TERRITORY YEAR -> displaying the percentage pass rate for a given province over the years, e.g.')
+            print(' --3 YEAR -> Providing the voivodship with the best pass rate in a given year.')
+            print(' --4 -> Displaying voivodships that recorded a decrease in the success rate in the following year.')
+            print(' --5 FIRST_TERRITORY SECOND_TERRITORY -> comparison of two voivodships - for the two voivodships '
+                  'listed, listing which voivodship had better pass rates in each available year.')
+
+    def check_command(self):
+        if self.first_arg != "1" or self.first_arg != "2" or self.first_arg != "3" or self.first_arg != "4" \
+             "" or self.first_arg != "5" or self.first_arg != "--help" or self.first_arg != "--get_data":
+            return True
 
 
 if __name__ == '__main__':
