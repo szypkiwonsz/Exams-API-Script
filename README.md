@@ -44,7 +44,7 @@ pip install requests
 A step by step series of examples that tell you how to run a script
 
 ```
-python script.py COMMAND
+--python script.py COMMAND
 ```
 
 You can also add "kobiety" or "mężczyźni" to view results split by gender
@@ -95,7 +95,11 @@ Comparison of two voivodships - for the two voivodships listed, listing which vo
 --5 FIRST_TERRITORY SECOND_TERRITORY
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+Example
+
+```
+--1 pomorskie 2012 mężczyźni
+```
 
 ## Running the tests
 
