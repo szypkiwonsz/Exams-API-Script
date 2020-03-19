@@ -43,6 +43,8 @@ pip install requests
 
 A step by step series of examples that tell you how to run a script
 
+python script.py COMMAND
+
 Show basic help menu.
 
 ```
