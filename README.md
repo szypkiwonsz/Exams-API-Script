@@ -43,13 +43,11 @@ pip install requests
 
 A step by step series of examples that tell you how to run a script
 
-python script.py COMMAND
+Show basic help menu.
 
 ```
---help -> show basic help menu.
+python script.py --help -> show basic help menu.
 ```
-
-And repeat
 
 ```
 until finished
