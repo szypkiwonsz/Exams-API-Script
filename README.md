@@ -1,5 +1,3 @@
-### A python script that retrieves api data about joining and passing the Matura exam in given provinces. By entering the appropriate commands, we can display the selected data.
-
 ##### Avaible commands:
 
 python script.py COMMAND
@@ -18,11 +16,6 @@ python script.py COMMAND
 
 --5 FIRST_TERRITORY SECOND_TERRITORY -> comparison of two voivodships - for the two voivodships listed, listing which voivodship had better pass rates in each available year.
 
-##### Packages to install:
-- pip install requests
-
-##### Version of software used:
-- Python 3.8.x
 
 # Exams-API-Script
 
@@ -34,20 +27,21 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
+python 3.8.x
 requests
 
 ```
 pip install requests
 ```
 
-### Installing
+### Running
 
 A step by step series of examples that tell you how to run a script
 
-Say what the step will be
+python script.py COMMAND
 
 ```
-Give the example
+--help -> show basic help menu.
 ```
 
 And repeat
