@@ -21,9 +21,6 @@ class Calculations(Database):
     def check_gender(self):
         if self.gender.lower() == "kobiety" or self.gender.lower() == "mężczyźni":
             self.gender = "AND GENDER = '{}'".format(self.gender)
-        else:
-            self.gender = ""
-            print("Gender entered incorrectly.")
 
     def joined(self):
         self.query("SELECT PEOPLE FROM EXAM_DATA WHERE TERRITORY = '{}' AND YEAR <= '{}' AND JOINED_AND_PASSED = "
