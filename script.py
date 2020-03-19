@@ -2,6 +2,7 @@ import sys
 
 from api import Api
 from calculations import Calculations
+from database import Database
 args = sys.argv
 
 
@@ -66,6 +67,12 @@ if __name__ == '__main__':
 
     argument = Arguments(args[1:])
     argument.get_arguments()
+
+    database = Database("exams_data.sqlite")
+    if database.is_empty() and argument.first != "--get_data":
+        print("First, you have to fill database with data! Command: --get_data")
+        sys.exit()
+    database.close()
 
     if argument.first_command():
         first_command = Calculations("exams_data.sqlite", argument.second, argument.third, argument.fourth)
