@@ -25,14 +25,14 @@ pip install requests
 A step by step series of examples that tell you how to run a script
 
 ```
---python script.py COMMAND
+python script.py COMMAND
 ```
 
 
 You can also add "kobiety" or "mężczyźni" to view results split by gender
 
 ```
---python script.py COMMAND kobiety
+python script.py COMMAND kobiety
 ```
 
 
