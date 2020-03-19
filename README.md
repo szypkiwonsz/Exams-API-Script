@@ -82,7 +82,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* **Jan Kacper Sawicki** - *Initial work* - [szypkiwonsz](https://github.com/szypkiwonsz)
+* **Jan Kacper Sawicki** - [szypkiwonsz](https://github.com/szypkiwonsz)
 
 ## Acknowledgments
 
