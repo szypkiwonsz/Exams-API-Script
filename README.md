@@ -19,7 +19,7 @@ requests
 ```
 pip install requests
 ```
-
+---
 ### Running
 
 A step by step series of examples that tell you how to run a script
