@@ -8,12 +8,6 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-python 3.8.x
-
-```
-https://www.python.org/downloads/
-```
----
 requests
 
 ```
@@ -84,7 +78,7 @@ python script.py --1 pomorskie 2012 mężczyźni
 ---
 ## Built With
 
-* [Python](https://www.python.org/) - The programming language used
+* [Python 3.8](https://www.python.org/) - The programming language used
 
 ## Authors
 
