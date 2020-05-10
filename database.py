@@ -47,4 +47,3 @@ class Database:
             return False
         else:
             return True
-

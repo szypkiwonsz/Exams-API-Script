@@ -36,8 +36,3 @@ class Api(Database):
                     "(?, ?, ?, ?, ?)", (territory, joined_or_passed, gender, year, number_of_people))
 
         self.close()
-
-
-
-
-
