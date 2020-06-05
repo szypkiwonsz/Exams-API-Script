@@ -8,7 +8,6 @@ args = sys.argv
 
 class Arguments:
     def __init__(self, arguments):
-
         self.arguments = arguments
         self.first = ""
         self.second = ""
@@ -67,7 +66,6 @@ if __name__ == '__main__':
 
     argument = Arguments(args[1:])
     argument.get_arguments()
-
     database = Database("exams_data.sqlite")
     if database.is_empty() and argument.first != "--get_data":
         print("First, you have to fill database with data! Command: --get_data")
