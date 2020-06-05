@@ -8,10 +8,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-requests
+Libraries and Packages
 
 ```
-pip install requests
+pip install -r requirements.txt
 ```
 ---
 ### Running
@@ -19,61 +19,79 @@ pip install requests
 A step by step series of examples that tell you how to run a script
 
 ```
-python script.py COMMAND
+python script.py --[command]
 ```
 ---
 You can also add "kobiety" or "mężczyźni" to view results split by gender
 
 ```
-python script.py COMMAND kobiety
+python script.py [command] kobiety
 ```
 ---
 Show basic help menu
 
 ```
---help
+python script.py --help
 ```
 ---
 Importing data from api to database
 
 ```
---get_data
+python script.py --get_data
 ```
 ---
 Displaying the average number of people who took the exam for a given province over the years, up to the given year
 
 ```
---1 TERRITORY YEAR
+python script.py --1 [territory] [year]
 ```
 ---
 Displaying the percentage pass rate for a given province over the years, e.g. 
 
 ```
---2 TERRITORY YEAR
+python script.py --2 [territory] [year]
 ```
 ---
-Providing the voivodship with the best pass rate in a given year 
+Providing the voivodeship with the best pass rate in a given year 
 
 ```
---3 YEAR
+python script.py --3 [year]
 ```
 ---
-Displaying voivodships that recorded a decrease in the success rate in the following year
+Displaying provinces that recorded a decrease in the success rate in the following year
 
 ```
---4
+python script.py --4
 ```
 ---
-Comparison of two voivodships - for the two voivodships listed, listing which voivodship had better pass rates in each available year
+Comparison of two provinces - for the two provinces listed, listing which voivodship had better pass rates in each available year
 
 ```
---5 FIRST_TERRITORY SECOND_TERRITORY
+python script.py --5 [first_territory] [second_territory]
 ```
 ---
 Example
 
 ```
 python script.py --1 pomorskie 2012 mężczyźni
+```
+---
+
+### Running
+
+A step by step series of examples that tell you how to run a script
+
+```
+Download project
+```
+```
+Install requirements
+```
+```
+Run terminal with choosen folder "Exams-API-Script>"
+```
+```
+Type selected command
 ```
 ---
 ## Built With
