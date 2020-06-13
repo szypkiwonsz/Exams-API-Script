@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 Libraries and Packages
 
 ```
-pip install -r requirements.tx
+pip install -r requirements.txt
 ```
 ---
 ### Avaible commands
